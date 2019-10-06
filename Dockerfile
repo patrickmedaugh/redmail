@@ -1,9 +1,5 @@
-FROM lejmr/iredmail:mysql-latest
+FROM centos:centos7
 
-ENV DOMAIN=localhost
-ENV HOSTNAME=mail
-ENV MYSQL_ROOT_PASSWORD=secretpassword
-ENV POSTMASTER_PASSWORD=postpass
-ENV TZ=America/Los_Angeles
-ENV SOGO_WORKERS=3
-ENV IREDAPD_PLUGINS="['reject_null_sender', 'reject_sender_login_mismatch', 'greylisting', 'throttle', 'amavisd_wblist', 'sql_alias_access_policy']"
+COPY ./iRedMail-0.9.9 .
+RUN chmod 777 ./iRedMail.sh
+CMD /bin/bash ./iRedMail.sh
