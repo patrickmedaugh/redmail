@@ -1,0 +1,9 @@
+version: '3.7'
+services:
+  postfix:
+    image: juanluisbaptiste/postfix:latest
+    environment:
+      - SMTP_SERVER=localhost
+      - SMTP_USERNAME=root
+      - SMTP_PASSWORD=passpass
+      - SERVER_HOSTNAME=host.local.domain
